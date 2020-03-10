@@ -2,7 +2,8 @@ import React from 'react';
 // import logo from './logo.svg';
 // import './App.css';
 import Panel from './components/Panel';
-import { simple_probality, combinat_placement,combinat_combination,combinat_transposition } from './logic'
+import Panel2 from './components/Panel2';
+import { simple_probality, combinat_placement,combinat_combination,combinat_transposition,view_bernuli } from './logic'
 
 function App() {
 
@@ -19,6 +20,13 @@ function App() {
 
     <Panel name="комбинаторика перестановка (подстановка) ( =n!)" id_1='combinat_transposition1' id_2='combinat_transposition2' id_3='result_combinat_transposition'
       name_input_1="количество различных элементов соответствует количеству мест (вводить не надо)" name_input_2="количество мест возможных перестановок этих элементов n"set_result={combinat_transposition} />
+    <Panel2 name="Формула Бернулли — формула в теории вероятностей,
+     позволяющая находить вероятность появления события A определённое количество раз при нескольких независимых испытаниях"
+      id_1='bernuli_1' id_2='bernuli_2' id_3='bernuli_3' id_4='result_bernuli'
+      name_input_1="количество раз наступления события к" 
+      name_input_2="всего количество событий n" 
+      name_input_3="вероятность наступления события p"
+      set_result={view_bernuli} />
     
     </div>
   );

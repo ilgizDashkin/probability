@@ -81,4 +81,24 @@ function combinat_transposition() {
         result.textContent ="введены неправильные данные"
     }
 }
-export { simple_probality, combinat_placement,combinat_combination,combinat_transposition }
+// формула Бернулли
+function bernuli(m,n,p){
+    let q=1-p
+    if ((n>m)&&(m>0) && (n > 1)) {
+      let result=combination(m, n)*Math.pow(p, m)*Math.pow(q, n-m)
+      return result.toFixed(4)
+    }   
+}
+function view_bernuli(){
+    let m = Number(document.getElementById('bernuli_1').value)
+    let n = Number(document.getElementById('bernuli_2').value)
+    let p = Number(document.getElementById('bernuli_3').value)
+    let result = document.getElementById('result_bernuli')
+    let out = bernuli(m,n,p)
+    if (out) {
+        result.textContent = `вероятность наступления события  ${m} раз в ${n} экспериментах равно: ${out}`
+    }else{
+        result.textContent ="введены неправильные данные"
+    }
+}
+export { simple_probality, combinat_placement,combinat_combination,combinat_transposition,view_bernuli }
