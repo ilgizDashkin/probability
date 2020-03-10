@@ -70,7 +70,8 @@ function transposition(n) {
         return num
     }
 }
-function combinat_transposition() {    
+function combinat_transposition() {  
+    document.getElementById('combinat_transposition1').style.display="none"  
     let n = Number(document.getElementById('combinat_transposition2').value)
     document.getElementById('combinat_transposition1').value=n
     let result = document.getElementById('result_combinat_transposition')
