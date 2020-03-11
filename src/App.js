@@ -3,7 +3,9 @@ import React from 'react';
 // import './App.css';
 import Panel from './components/Panel';
 import Panel2 from './components/Panel2';
-import { simple_probality, combinat_placement,combinat_combination,combinat_transposition,view_bernuli } from './logic'
+import { simple_probality, combinat_placement,combinat_combination,combinat_transposition,view_bernuli,view_independent_events,view_dependency_events,view_join_events,
+  view_nojoin_events
+ } from './logic'
 
 function App() {
 
@@ -33,6 +35,25 @@ function App() {
       name_input_3="вероятность наступления события p"
       set_result={view_bernuli} />
     
+    <Panel name="формула вероятности наступления события А и B (произведения вероятностей) для независимых событий" img_name='img/independent_events.jpg' 
+    id_1='independent_events_1' id_2='independent_events_2' id_3='result_independent_events'
+      name_input_1="вероятность наступления события А" name_input_2="вероятность наступления события В" set_result={view_independent_events} />
+
+<Panel name="формула вероятности наступления события А и B (произведения вероятностей) для зависимых событий" img_name='img/dependency_events.jpg' 
+    id_1='dependency_events_1' id_2='dependency_events_2' id_3='result_dependency_events'
+      name_input_1="вероятность наступления события А" name_input_2="вероятность наступления события В/A события В зависимого от А" set_result={view_dependency_events} />
+
+<Panel2 name="формула вероятности наступления события А или B (суммы вероятностей) для совместных событий (события которые могут происходить одновременно)"
+     img_name='img/join_events.jpg' id_1='join_events_1' id_2='join_events_2' id_3='join_events_3' id_4='result_join_events'
+      name_input_1="вероятность наступления события А" 
+      name_input_2="вероятность наступления события А" 
+      name_input_3="вероятность наступления события АB (произведения вероятностей)"
+      set_result={view_join_events} />
+
+<Panel name="формула вероятности наступления события А или B (суммы вероятностей) для несовместных событий (события которые не могут происходить одновременно)"
+ img_name='img/nojoin_events.jpg' id_1='nojoin_events_1' id_2='nojoin_events_2' id_3='result_nojoin_events'
+      name_input_1="вероятность наступления события А" name_input_2="вероятность наступления события В" set_result={view_nojoin_events} />
+  
     </div>
   );
 }

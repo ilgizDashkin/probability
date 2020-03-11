@@ -102,4 +102,69 @@ function view_bernuli(){
         result.textContent ="введены неправильные данные"
     }
 }
-export { simple_probality, combinat_placement,combinat_combination,combinat_transposition,view_bernuli }
+// формула вероятности наступления события А и B (произведения вероятностей) для независимых событий
+function independent_events(a,b){
+    return (a*b).toFixed(3)
+}
+function view_independent_events(){
+    let a = Number(document.getElementById('independent_events_1').value)
+    let b = Number(document.getElementById('independent_events_2').value)
+    let result = document.getElementById('result_independent_events')
+    let out = independent_events(a,b)
+    if (out) {
+        result.textContent = `вероятность наступления события  А и B (произведения вероятностей) для независимых событий равно: ${out}`
+    }else{
+        result.textContent ="введены неправильные данные"
+    } 
+}
+// формула вероятности наступления события А и B (произведения вероятностей) для зависимых событий
+function dependency_events(a,b_zav_a){
+    return (a*b_zav_a).toFixed(3)
+}
+function view_dependency_events(){
+    let a = Number(document.getElementById('dependency_events_1').value)
+    let b_zav_a = Number(document.getElementById('dependency_events_2').value)
+    let result = document.getElementById('result_dependency_events')
+    let out = dependency_events(a,b_zav_a)
+    if (out) {
+        result.textContent = `вероятность наступления события  А и B (произведения вероятностей) для зависимых событий равно: ${out}`
+    }else{
+        result.textContent ="введены неправильные данные"
+    } 
+}
+// формула вероятности наступления события А или B (суммы вероятностей) для совместных событий (события которые могут происходить одновременно)
+function join_events(a,b,ab){
+    return (a+b-ab).toFixed(3)
+}
+function view_join_events(){
+    let a = Number(document.getElementById('join_events_1').value)
+    let b = Number(document.getElementById('join_events_2').value)
+    let ab = Number(document.getElementById('join_events_3').value)
+    let result = document.getElementById('result_join_events')
+    let out = join_events(a,b,ab)
+    if (out) {
+        result.textContent = `вероятности наступления события А или B (суммы вероятностей) для совместных событий (события которые могут происходить одновременно) равно: ${out}`
+    }else{
+        result.textContent ="введены неправильные данные"
+    } 
+}
+// формула вероятности наступления события А или B (суммы вероятностей) для несовместных событий (события которые не могут происходить одновременно)
+function nojoin_events(a,b){
+    return (a+b).toFixed(3)
+}
+function view_nojoin_events(){
+    let a = Number(document.getElementById('nojoin_events_1').value)
+    let b = Number(document.getElementById('nojoin_events_2').value)    
+    let result = document.getElementById('result_nojoin_events')
+    let out = nojoin_events(a,b)
+    if (out) {
+        result.textContent = `вероятности наступления события А или B (суммы вероятностей) для не совместных событий (события которые не могут происходить одновременно) равно: ${out}`
+    }else{
+        result.textContent ="введены неправильные данные"
+    } 
+}
+
+export { simple_probality, combinat_placement,combinat_combination,combinat_transposition,view_bernuli,view_independent_events,view_dependency_events,view_join_events,
+    view_nojoin_events
+
+}
