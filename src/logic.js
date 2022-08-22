@@ -82,6 +82,68 @@ function combinat_transposition() {
         result.textContent ="введены неправильные данные"
     }
 }
+
+// комбинаторика формула сочетания с повторениями (могут быть одинаковые несколько штук)
+function placement_repetition(m, n) {
+    if ((n>m)&&(m>0) && (n > 1)) {
+        let num = factorial(n)
+        let denom = factorial(m)*factorial(n - m)
+        console.log("числительное "+num)
+        console.log("знаменательное "+denom)
+        return (num / denom).toFixed(2)
+    }
+}
+function combinat_placement_repetition() {
+    let m = Number(document.getElementById('combinat_placement_repetition1').value)
+    let n = Number(document.getElementById('combinat_placement_repetition2').value)
+    let result = document.getElementById('result_combinat_placement_repetition')
+    let out = placement_repetition(m, n+m-1)
+    if (out) {
+        result.textContent =`варианты комбинации размещение ${m} элементов в ${n} позициях равно: ${out}`
+    }else{
+        result.textContent ="введены неправильные данные"
+    }
+}
+
+// комбинаторика формула размещения с повторениями (могут быть одинаковые несколько штук)
+function placement_combination(m, n) {
+    if ((m>0) && (n > 1)) {
+        return (Math.pow(m, n)).toFixed(2)
+    }
+}
+function combinat_repetition() {
+    let m = Number(document.getElementById('combinat_repetition1').value)
+    let n = Number(document.getElementById('combinat_repetition2').value)
+    let result = document.getElementById('result_combinat_repetition')
+    let out = placement_combination(n, m)
+    if (out) {
+        result.textContent =`варианты комбинации размещение ${m} элементов в ${n} позициях равно: ${out}`
+    }else{
+        result.textContent ="введены неправильные данные"
+    }
+}
+
+// комбинаторика формула перестановка с повторениями из n элементов
+function repetition(m, n) {
+    if ((n>m)&&(m>0) && (n > 1)) {
+        let num = factorial(n)
+        let denom = factorial(m)*factorial(n - m)
+        console.log("числительное "+num)
+        console.log("знаменательное "+denom)
+        return (num / denom).toFixed(2)
+    }
+}
+function permutation_repetition() {
+    let m = Number(document.getElementById('permutation_repetition1').value)
+    let n = Number(document.getElementById('permutation_repetition2').value)
+    let result = document.getElementById('result_permutation_repetition')
+    let out = repetition(m,n)
+    if (out) {
+        result.textContent =`варианты комбинации размещение ${m} элементов в ${n} позициях равно: ${out}`
+    }else{
+        result.textContent ="введены неправильные данные"
+    }
+}
 // формула Бернулли
 function bernuli(m,n,p){
     let q=1-p
@@ -164,7 +226,7 @@ function view_nojoin_events(){
     } 
 }
 
-export { simple_probality, combinat_placement,combinat_combination,combinat_transposition,view_bernuli,view_independent_events,view_dependency_events,view_join_events,
+export { simple_probality, combinat_placement,combinat_combination,combinat_transposition,combinat_placement_repetition,combinat_repetition,permutation_repetition,view_bernuli,view_independent_events,view_dependency_events,view_join_events,
     view_nojoin_events
 
 }
