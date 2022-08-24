@@ -10,7 +10,7 @@ function Input(props) {
             <p>{props.name} </p>
             </div>  
              <div className="col-2">
-              <input id={props.id} type="number"></input>
+              <input id={props.id} ></input>
              </div>                  
         </div>
     )
