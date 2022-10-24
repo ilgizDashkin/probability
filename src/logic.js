@@ -254,9 +254,34 @@ function view_nojoin_events() {
         result.textContent = "введены неправильные данные"
     }
 }
-
+// 
+function view_full_propability() {
+    let a = document.getElementById('events_propability').value.split(',')
+    let b = document.getElementById('conditional_probability').value.split(',')
+    let result = document.getElementById('result_full_propability')
+    // console.log(`a=${a}, b=${b}`)
+    // let out = nojoin_events(a, b)
+    // if (out) {
+    //     result.textContent = `вероятности наступления события А или B (суммы вероятностей) для не совместных событий (события которые не могут происходить одновременно) равно: ${out}`
+    // } else {
+    //     result.textContent = "введены неправильные данные"
+    // }
+    if ((a.length > 1) && (b.length > 1) && (a.length === b.length)) {
+        console.log(`a=${a.length}, b=${b.length}`)
+        let summ_arr = a.map(function (value, index) { return value * b[index] })
+        console.log(`summ_arr=${summ_arr}`)
+        let s = 0;
+        for (let i= 0; i < summ_arr.length; i++) {
+            s += summ_arr[i]
+        }
+        let bias_arr=a.map(function (value, index) { return (value * b[index]/s).toFixed(3) })
+        result.textContent =`полная вероятность события ${s.toFixed(3)}, условные вероятности по Байесу ${bias_arr}`
+    } else {
+        result.textContent = "введены неправильные данные"
+    }
+}
 export {
     simple_probality, combinat_placement, combinat_combination, combinat_transposition, combinat_placement_repetition, combinat_repetition, permutation_repetition, view_bernuli, view_independent_events, view_dependency_events, view_join_events,
-    view_nojoin_events
+    view_nojoin_events, view_full_propability
 
 }

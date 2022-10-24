@@ -5,7 +5,7 @@ import Panel from './components/Panel';
 import Panel2 from './components/Panel2';
 import {
   simple_probality, combinat_placement, combinat_combination, combinat_transposition, combinat_placement_repetition,combinat_repetition,permutation_repetition, view_bernuli, view_independent_events, view_dependency_events, view_join_events,
-  view_nojoin_events
+  view_nojoin_events,view_full_propability
 } from './logic'
 
 function App() {
@@ -72,6 +72,10 @@ function App() {
       <Panel name="формула вероятности наступления события А или B (суммы вероятностей) для несовместных событий (события которые не могут происходить одновременно)"
         img_name='img/nojoin_events.jpg' id_1='nojoin_events_1' id_2='nojoin_events_2' id_3='result_nojoin_events'
         name_input_1="вероятность наступления события А" name_input_2="вероятность наступления события В" set_result={view_nojoin_events} />
+
+<Panel name="формула полной вероятности, если событие может произойти только при условии появления одного из события образуя полную группу"
+        img_name='img/full_propability.jpg' id_1='events_propability' id_2='conditional_probability' id_3='result_full_propability'
+        name_input_1="вероятности наступления событий(через запятую)" name_input_2="условные вероятности этих событий(через запятую)" set_result={view_full_propability} />
 
     </div>
   );
